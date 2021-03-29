@@ -1,8 +1,8 @@
 {
-  "name": "react",
+  "name": "js_react",
   "version": "1.0.0",
   "description": "",
-  "main": "static_src/index.js",
+  "main": "static_src/index.jsx",
   "scripts": {
     "start": "webpack --mode development",
     "server": "webpack serve --mode development",
@@ -18,7 +18,15 @@
     "url": "https://github.com/Nattone/react/issues"
   },
   "homepage": "https://github.com/Nattone/react#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
     "html-webpack-plugin": "^5.3.1",
     "webpack": "^5.28.0",

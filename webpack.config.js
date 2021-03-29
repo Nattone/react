@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: { //entry — файл, с которого начинается сборка приложения. Их может быть несколько, тогда и сборка будет не одна
-        app: './index.js',
+        app: './index.jsx',
     },
     context: path.resolve(__dirname, "static_src"), //context — папка, в которой нужно искать entry
     output: { //output содержит имя файла сборки (filename) и путь до папки, куда этот файл будет сохранен (path)
@@ -19,5 +19,21 @@ module.exports = {
     devServer: {
         compress: true,
         hot: true,
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                include: path.resolve(__dirname, "static_src"),
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                options: {
+                    presets: ['@babel/env', '@babel/react'],
+                },
+                // query: {
+                //     presets: ['@babel/env', '@babel/react'],
+                // }
+            },
+        ],
     },
 };
