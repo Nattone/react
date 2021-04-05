@@ -34,7 +34,9 @@ const Chat = (props) => {
     return (
         <div className="chat">
             <h2 className="title">{props.title}</h2>
-            <MessagesList messages={messages} />
+            <div className="messages-wrapper">
+                <MessagesList messages={messages} />
+            </div>
             <MessageForm onSubmit={onSubmitHandler} />
         </div>
     )

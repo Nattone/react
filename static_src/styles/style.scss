@@ -10,16 +10,16 @@ body {
 #root {
     max-width: 1280px;
     margin: 0 auto;
-    // padding: 0 40px 80px;
     box-sizing: border-box;
 }
 body {
     margin: 0;
-    // background-color: #000;
+    background-color: #151515;
     color: #8135fb;
     font-family: 'Raleway', sans-serif;
 }
 .layout {
+    flex-grow: 1;
 
     .header {
         padding: 40px 0;
@@ -27,12 +27,13 @@ body {
 
     .chatwrapper {
         display: flex;
+        flex-grow: 1;
 
         .chatlist {
             width: 20%;
             border-right: 1px solid #fd3ed2;
-            padding: 0 40px;
-            background-color: #151515;
+            padding: 20px 40px;
+            // background-color: #151515;
 
             .chat {
                 &-item {
@@ -48,26 +49,41 @@ body {
 
         .chat {
             width: 80%;
-            padding: 0 40px;
+            padding: 20px 40px;
+            display: flex;
+            flex-direction: column;
 
             .message {
+                margin-bottom: 10px;
 
                 &-author {
                     color: #fedd7d;
                 }
             }
         }
+
+        .messages-wrapper {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+
+        form {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 }
 
 h1, h2 {
-    margin: 0 auto;
     color: #fd3ed2;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
 }
 
 h1 {
     text-align: center;
+    margin: 0 auto;
 }
 
 

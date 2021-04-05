@@ -20,9 +20,8 @@ export default function MessageForm(props) {
         <form onSubmit={onSubmitHandler}>
             <TextField
                 label="напишите что-нибудь"
-                variant="outlined"
                 size="small"
-                color="secondary"
+                color="primary"
                 name="message"
                 value={inputText}
                 onChange={onChangeHandler}
