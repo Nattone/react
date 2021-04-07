@@ -1,42 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import MessagesList from './components/MessagesList.jsx';
-import MessageForm from './components/MessageForm.jsx';
+import Layout from './components/Layout.jsx';
+import Chat from './components/Chat.jsx';
 
-const currentAuthor = 'Я'
-const defaultMessages = [
-    { author: 'кто-то', text: 'Привет' },
-    { author: 'кто-то еще', text: 'Как дела?' }
-]
+import "./styles/style.scss";
+import ChatList from './components/ChatList.jsx';
+
+import { createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            // light: will be calculated from palette.primary.main,
+            main: '#8135fb',
+            // dark: will be calculated from palette.primary.main,
+            // contrastText: will be calculated to contrast with palette.primary.main
+        },
+        secondary: {
+            light: '#fedd7d',
+            main: '#fd3ed2',
+            // dark: will be calculated from palette.secondary.main,
+            contrastText: '#fd3ed2',
+        },
+    },
+});
+
+const list = ["work-chat", "family-chat", "friend-chat"];
 
 const App = () => {
-    const [messages, setMessages] = useState(defaultMessages);
-
-    useEffect(() => {
-        if (messages.length > 0 && messages[messages.length - 1].author === currentAuthor) {
-            const answer = {
-                author: 'robot',
-                text: 'ты мне не нравишься'
-            };
-            setTimeout(() => {
-                setMessages([...messages, answer]);
-            }, 1000);
-        };
-    }, [messages]);
-
-    const onSubmitHandler = (value) => {
-        const newMessage = {
-            author: currentAuthor,
-            text: value
-        };
-        setMessages([...messages, newMessage]);
+    const [activeChat, setActiveChat] = useState(0);
+    const onChatChangeHandler = (chatIndex) => {
+        setActiveChat(chatIndex)
     };
-
     return (
-        <div>
-            <MessagesList messages={messages} />
-            <MessageForm onSubmit={onSubmitHandler} />
-        </div>
+        <Layout>
+            <ChatList list={list} onChange={onChatChangeHandler} />
+            <Chat title={list[activeChat]} />
+        </Layout>
     )
 }
 

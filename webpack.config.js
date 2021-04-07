@@ -1,8 +1,9 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
+module.exports = (env, argv) => ({
     entry: { //entry — файл, с которого начинается сборка приложения. Их может быть несколько, тогда и сборка будет не одна. Входная точка
         app: './index.jsx',
     },
@@ -15,6 +16,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
         }),
     ],
     devServer: {
@@ -32,6 +36,18 @@ module.exports = {
                     presets: ['@babel/env', '@babel/react'],
                 },
             },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    (argv.mode === 'production')
+                        ? MiniCssExtractPlugin.loader
+                        : 'style-loader',
+                    // Translates CSS into CommonJS
+                    "css-loader",
+                    // Compiles Sass to CSS
+                    "sass-loader",
+                ],
+            },
         ],
     },
-};
+});
