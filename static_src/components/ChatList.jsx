@@ -15,6 +15,7 @@ const ChatList = (props) => {
                     {item}
                 </Link>
             ))}
+            <button className="button">Добавить чат</button>
         </div>
 
 

@@ -15,7 +15,7 @@ export default function MessageForm(props) {
     };
 
     return (
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler} className="form">
             <input
                 type="text"
                 placeholder="напишите что-нибудь"
@@ -26,7 +26,7 @@ export default function MessageForm(props) {
             />
             <input
                 type="submit"
-                className="form-button"
+                className="button form-button"
                 value="Отправить"
             />
         </form>

@@ -33,12 +33,38 @@ body {
     background-color: #151515;
     color: #8135fb;
     font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
+}
+h1, h2 {
+    color: #fd3ed2;
+    margin: 0 0 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.button {
+    border: none;
+    background-color: #fd3ed2;
+    color: #151515;
+    border-radius: 5px;
+    padding: 10px 20px;
+    outline: none;
+    transition: background-color .3s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #fedd7d;
+    }
 }
 
 .menu {
     background-color: #1d1d1d;
     border-bottom: 1px solid #fd3ed2;
     position: relative;
+    padding: 0 40px;
 
     &::before {
         content: '';
@@ -57,8 +83,11 @@ body {
         margin: 0;
     }
 
+    &-item + .menu-item {
+        margin-left: 10px;
+    }
+
     &-item a {
-        padding: 0 20px;
 
         &:hover {
             color: #fedd7d;
@@ -72,95 +101,80 @@ body {
     .header {
         padding: 40px 0;
     }
-    .chatwrapper {
+}
+
+.chatwrapper {
+    display: flex;
+    flex-grow: 1;
+
+    .chatlist {
+        width: 20%;
+        border-right: 1px solid #fd3ed2;
+        padding: 20px 40px;
+        background-color: #1d1d1d;
         display: flex;
-        flex-grow: 1;
-
-        .chatlist {
-            width: 20%;
-            border-right: 1px solid #fd3ed2;
-            padding: 20px 40px;
-            background-color: #1d1d1d;
-            display: flex;
-            flex-direction: column;
-
-            .chat {
-                &-item {
-                    margin-bottom: 20px;
-                    transition: color .3s ease;
-
-                    &._active {
-                        color: #fd3ed2;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-                        color: #fedd7d;
-                    }
-                }
-            }
-        }
+        flex-direction: column;
 
         .chat {
-            width: 80%;
-            padding: 20px 40px;
-            display: flex;
-            flex-direction: column;
+            &-item {
+                margin-bottom: 20px;
+                transition: color .3s ease;
 
-            .message {
-                margin-bottom: 10px;
+                &._active {
+                    color: #fd3ed2;
+                }
 
-                &-author {
+                &:hover {
+                    cursor: pointer;
                     color: #fedd7d;
                 }
             }
         }
+    }
 
-        .messages-wrapper {
-            display: flex;
-            flex-grow: 1;
-            flex-direction: column;
-            margin-bottom: 40px;
+    .chat {
+        width: 80%;
+        padding: 20px 40px;
+        display: flex;
+        flex-direction: column;
+
+        .message {
+            margin-bottom: 10px;
+
+            &-author {
+                color: #fedd7d;
+            }
         }
+    }
 
-        form {
-            display: flex;
-            justify-content: space-between;
+    .messages-wrapper {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
 
-            &-input {
-                width: 100%;
-                margin-right: 20px;
-                padding: 0 10px;
-                border: none;
-                color: #fff;
-                border-radius: 5px;
-            }
-            &-button {
-                border: none;
-                background-color: #fd3ed2;
-                color: #151515;
-                border-radius: 5px;
-                padding: 10px 20px;
-                transition: background-color .3s ease;
-                outline: none;
-            
-                &:hover {
-                    cursor: pointer;
-                    background-color: #fedd7d;
-                }
-            }
+    .form {
+        display: flex;
+        justify-content: space-between;
+
+        &-input {
+            width: 100%;
+            margin-right: 20px;
+            padding: 0 10px;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            background-color: #1d1d1d;
+            outline: none;
         }
     }
 }
 
-h1, h2 {
-    color: #fd3ed2;
-    margin: 0 0 20px;
+.profile {
+    padding: 0 40px;
 }
 
-h1 {
-    text-align: center;
-    margin: 0 auto;
-}
+
 
 
