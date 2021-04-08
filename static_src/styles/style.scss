@@ -51,7 +51,7 @@ h1 {
     color: #151515;
     border-radius: 5px;
     padding: 10px 20px;
-    outline: none;
+    outline: none; 
     transition: background-color .3s ease;
 
     &:hover {
@@ -114,6 +114,12 @@ h1 {
         background-color: #1d1d1d;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
 
         .chat {
             &-item {
