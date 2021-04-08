@@ -11,7 +11,7 @@ module.exports = (env, argv) => ({
     output: { //output содержит имя файла сборки (filename) и путь до папки, куда этот файл будет сохранен (path) (куда складывать билд)
         path: path.resolve(__dirname, "static", "build"), //__dirname — это константа node.js, определяемая автоматически в каждом файле и содержащая путь до папки, в которой лежит исполняемый файл (у нас это корневая папка)
         filename: 'app.js',
-        publicPath: '/',
+        publicPath: '',
     },
     plugins: [
         new HtmlWebpackPlugin({
