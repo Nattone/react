@@ -10,6 +10,7 @@ const defaultMessages = [
 ]
 
 const Chat = (props) => {
+    const { activeChat } = props
     const [messages, setMessages] = useState(defaultMessages);
 
     useEffect(() => {

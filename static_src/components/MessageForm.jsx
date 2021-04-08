@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { TextField } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 
 export default function MessageForm(props) {
     const [inputText, setInputText] = useState('');
@@ -18,23 +16,19 @@ export default function MessageForm(props) {
 
     return (
         <form onSubmit={onSubmitHandler}>
-            <TextField
-                label="напишите что-нибудь"
-                size="small"
-                color="primary"
+            <input
+                type="text"
+                placeholder="напишите что-нибудь"
                 name="message"
                 value={inputText}
                 onChange={onChangeHandler}
-                className="input"
+                className="form-input"
             />
-            <Button
-                variant="outlined"
+            <input
                 type="submit"
-                color="primary"
-                size="large"
-                className="button">
-                Отправить
-            </Button>
+                className="form-button"
+                value="Отправить"
+            />
         </form>
     );
 }
