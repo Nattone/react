@@ -1,24 +1,24 @@
 import React from 'react';
-
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
+import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const ChatList = (props) => {
+    const { activeChat } = useParams()
+
     return (
         <div className="chatlist">
-            <List className="chat">
+            <div className="chatlist-wrapper">
                 {props.list.map((item, index) => (
-                    <ListItem button
-                        className="chat-item"
+                    <Link to={`/chats/${index}`}
+                        className={`chat-item${(parseInt(activeChat) === index) ? ' _active' : ''}`}
                         key={index}
-                        onClick={() => props.onChange(index)}
                     >
                         {item}
-                    </ListItem>
+                    </Link>
                 ))}
-            </List>
+            </div>
+            <button className="button">Добавить чат</button>
         </div>
-
     )
 }
 export default ChatList
