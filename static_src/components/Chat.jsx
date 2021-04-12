@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import MessagesList from './MessagesList.jsx';
 import MessageForm from './MessageForm.jsx';
 
-const currentAuthor = 'Я'
 const defaultMessages = [
     { author: 'кто-то', text: 'Привет' },
     { author: 'кто-то еще', text: 'Как дела?' }
 ]
 
 const Chat = (props) => {
+    const profileName = useSelector((state) => state.profile.name)
     const { activeChat } = props
     const [messages, setMessages] = useState(defaultMessages);
 
     useEffect(() => {
-        if (messages.length > 0 && messages[messages.length - 1].author === currentAuthor) {
+        if (messages.length > 0 && messages[messages.length - 1].author === profileName) {
             const answer = {
                 author: 'robot',
                 text: 'ты мне не нравишься'
@@ -27,7 +28,7 @@ const Chat = (props) => {
 
     const onSubmitHandler = (value) => {
         const newMessage = {
-            author: currentAuthor,
+            author: profileName,
             text: value
         };
         setMessages([...messages, newMessage]);
