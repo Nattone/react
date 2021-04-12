@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { CHATS_ADD } from '../store/chats/actions';
 
 const ChatList = (props) => {
     const { activeChat } = useParams()
+    const dispatch = useDispatch()
+
+    const addChatHandler = useCallback(() => {
+        dispatch({ type: CHATS_ADD, name: "new chat" })
+    }, [])
 
     return (
         <div className="chatlist">
@@ -17,7 +24,7 @@ const ChatList = (props) => {
                     </Link>
                 ))}
             </div>
-            <button className="button">Добавить чат</button>
+            <button className="button" onClick={addChatHandler}>Добавить чат</button>
         </div>
     )
 }

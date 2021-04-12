@@ -9,11 +9,11 @@ a {
     &:hover {
         color: #fedd7d;
     }
-
-    &:visited {
-        color: inherit;
-    }
 }
+p {
+    margin: 0;
+}
+
 html,
 body {
 	height: 100%;
@@ -88,6 +88,7 @@ h1 {
     }
 
     &-item a {
+        color: #8135fb;
 
         &:hover {
             color: #fedd7d;
@@ -119,12 +120,15 @@ h1 {
         &-wrapper {
             display: flex;
             flex-direction: column;
+            max-height: calc(100vh - 155px);
+            overflow-y: scroll;
         }
 
         .chat {
             &-item {
                 margin-bottom: 20px;
                 transition: color .3s ease;
+                color: #8135fb;
 
                 &._active {
                     color: #fd3ed2;
@@ -159,26 +163,48 @@ h1 {
         flex-direction: column;
         margin-bottom: 40px;
     }
+}
 
-    .form {
-        display: flex;
-        justify-content: space-between;
+.form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 
-        &-input {
-            width: 100%;
-            margin-right: 20px;
-            padding: 0 10px;
-            border: none;
-            color: #fff;
-            border-radius: 5px;
-            background-color: #1d1d1d;
-            outline: none;
-        }
+    &-input {
+        width: 100%;
+        margin-right: 20px;
+        padding: 0 10px;
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+        background-color: #1d1d1d;
+        outline: none;
     }
 }
 
 .profile {
-    padding: 0 40px;
+    padding: 40px;
+
+    &-name-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-name-wrapper,
+    &-mail,
+    &-about {
+        margin-bottom: 20px;
+    }
+    &-mail {
+        display: block;
+    }
+    &-name {
+        display: inline-block;
+    }
+
+    &-rename-button {
+        display: inline-block;
+    }
 }
 
 

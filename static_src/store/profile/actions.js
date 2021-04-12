@@ -1,0 +1,1 @@
+export const PROFILE_RENAME = 'PROFILE_RENAME';
