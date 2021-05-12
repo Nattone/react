@@ -1,11 +1,13 @@
-import { CHATS_ADD } from './actions.js';
+import { CHATS_ADD, CHATS_MESSAGES_ADD } from './actions.js';
 
 const defaultState = {
     list: ["work-chat", "family-chat", "friend-chat"],
-    messages: [
-        { author: 'кто-то', text: 'Привет' },
-        { author: 'кто-то еще', text: 'Как дела?' }
-    ]
+    messages: {
+        0: [
+            { author: 'кто-то', text: 'Привет' },
+            { author: 'кто-то еще', text: 'Как дела?' }
+        ]
+    },
 };
 
 const reducer = (state = defaultState, action) => {
@@ -17,6 +19,15 @@ const reducer = (state = defaultState, action) => {
                     ...state.list,
                     action.name
                 ]
+            };
+
+        case CHATS_MESSAGES_ADD:
+            return {
+                ...state,
+                messages: {
+                    ...state.messages,
+                    [action.activeChat]: [...(state.messages[action.activeChat] || []), action.newMessage]
+                }
             };
 
         default: return state;
